@@ -5,7 +5,17 @@
 </head>
 <body>
 <h1>User, welcome spring boot security page!</h1>
-
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <block th:object="${user}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+    </block>
+</table>
+<a th:href="@{/logout}"><input type="button" id="logoutButton" value="Exit"></a>
 
 </body>
 </html>
