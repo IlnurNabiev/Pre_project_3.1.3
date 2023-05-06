@@ -15,12 +15,12 @@
   <label for="password">Enter password: </label>
   <input type="text" th:field="*{password}" id="password"/>
   <br/>
-  <label>
-  <select multiple="multiple" th:value="${person.roles}" name="roles">
-    <option th:value="${roles.get(0)}" th:text="USER"></option>
-    <option th:value="${roles.get(1)}" th:text="ADMIN"></option>
-  </select>
-</label>
+<!--  <label>-->
+<!--  <select multiple="multiple" th:value="${person.roles}" name="roles">-->
+<!--    <option th:value="${roles.get(0)}" th:text="USER"></option>-->
+<!--    <option th:value="${roles.get(1)}" th:text="ADMIN"></option>-->
+<!--  </select>-->
+<!--</label>-->
   <br/>
   <input type="submit" value="Create!"/>
 </form>

@@ -28,8 +28,9 @@ public class UserBusinesImpl implements UserBusinesService{
     @Override
     @Transactional
     public void save(User user) {
-        User userFromDb = userRepository.findByUsername(user.getName());
-        userRepository.save(userFromDb);
+        userRepository.save(user);
+//        User userFromDb = userRepository.findByUsername(user.getName());
+//        userRepository.save(userFromDb);
     }
 
     @Override

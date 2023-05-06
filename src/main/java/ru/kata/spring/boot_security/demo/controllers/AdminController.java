@@ -33,12 +33,16 @@ public class AdminController {
         return "show";
     }
 
-    @GetMapping("/new")
-    public String newUser(Model model) {
-        model.addAttribute("person",new User());
-        model.addAttribute("roles", userBusinesService.index());
-        return "new";
-    }
+//    @GetMapping("/new")
+//    public String newUser(Model model) {
+//        model.addAttribute("person",new User());
+//        model.addAttribute("roles", userBusinesService.index());
+//        return "new";
+//    }
+@GetMapping("/new")
+public String addNewUser(@ModelAttribute("person") User user) {
+    return "new";
+}
 
     @PostMapping("/new")
     public String create(@ModelAttribute("person") User user) {
