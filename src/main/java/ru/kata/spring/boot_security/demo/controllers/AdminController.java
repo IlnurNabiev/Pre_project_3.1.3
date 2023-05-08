@@ -4,16 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
+import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot_security.demo.services.UserBusinesService;
 
+import java.util.List;
 import java.util.Set;
 
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+    private RoleRepository roleRepository;
+    @Autowired
+    public void setRoleRepository(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     private UserBusinesService userBusinesService;
     @Autowired
@@ -33,16 +41,11 @@ public class AdminController {
         return "show";
     }
 
-//    @GetMapping("/new")
-//    public String newUser(Model model) {
-//        model.addAttribute("person",new User());
-//        model.addAttribute("roles", userBusinesService.index());
-//        return "new";
-//    }
-@GetMapping("/new")
-public String addNewUser(@ModelAttribute("person") User user) {
-    return "new";
-}
+    @GetMapping("/new")
+    public String addNewUser(Model model, @ModelAttribute("person") User user) {
+        model.addAttribute("roles", roleRepository.findAll());
+        return "new";
+    }
 
     @PostMapping("/new")
     public String create(@ModelAttribute("person") User user) {
@@ -63,7 +66,8 @@ public String addNewUser(@ModelAttribute("person") User user) {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute User user, @PathVariable("id") int id) {
+    public String update(@ModelAttribute User user, @PathVariable("id") Long id) {
+//        User user1 = userBusinesService.show(id);
         userBusinesService.update(user);
         return "redirect:/admin";
     }

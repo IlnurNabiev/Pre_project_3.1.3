@@ -12,6 +12,25 @@
   <input type="text" th:field="*{name}" id="name"/>
   <label for="email">Enter email: </label>
   <input type="text" th:field="*{email}" id="email"/>
+
+  <label for="rolesEdit">Role</label>
+  <select id="rolesEdit" th:field="${person.roles}" name="role"
+          required="required"
+          multiple="" size="2">
+    <option value="1">ADMIN</option>
+    <option value="2">USER</option>
+  </select>
+
+
+
+<!--  <label>Права доступа:-->
+<!--    <select size="2" multiple name="roles" required="required">-->
+<!--      <option  value="1">ADMIN</option>-->
+<!--      <option selected="selected" value="2">USER</option>-->
+<!--    </select>-->
+<!--  </label>-->
+<!--  <label for="role">Enter role: </label>-->
+<!--  <input type="text" th:field="*{role}" id="role">-->
   <br/>
   <input type="submit" value="Update"/>
 </form>

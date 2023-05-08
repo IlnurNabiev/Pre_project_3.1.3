@@ -15,6 +15,14 @@
   <label for="password">Enter password: </label>
   <input type="text" th:field="*{password}" id="password"/>
   <br/>
+  <br/>
+  <label>Права доступа:
+    <select size="2" multiple name="roles" required="required">
+      <option  value="1">USER</option>
+      <option selected="selected" value="2">ADMIN</option>
+    </select>
+  </label>
+
 <!--  <label>-->
 <!--  <select multiple="multiple" th:value="${person.roles}" name="roles">-->
 <!--    <option th:value="${roles.get(0)}" th:text="USER"></option>-->

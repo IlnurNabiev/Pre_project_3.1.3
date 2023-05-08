@@ -9,10 +9,12 @@
     <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Role</th>
     </tr>
     <block th:object="${user}">
         <td th:text="${user.name}"></td>
         <td th:text="${user.email}"></td>
+        <td th:text="${user.roles}"></td>
     </block>
 </table>
 <a th:href="@{/logout}"><input type="button" id="logoutButton" value="Exit"></a>
