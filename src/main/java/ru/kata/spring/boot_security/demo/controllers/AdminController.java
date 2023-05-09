@@ -41,9 +41,16 @@ public class AdminController {
         return "show";
     }
 
+//    @GetMapping("/new")
+//    public String addNewUser(Model model, @ModelAttribute("person") User user) {
+//        model.addAttribute("roles", roleRepository.findAll());
+//        return "new";
+//    }
+
     @GetMapping("/new")
-    public String addNewUser(Model model, @ModelAttribute("person") User user) {
+    public String addNewUser(Model model) {
         model.addAttribute("roles", roleRepository.findAll());
+        model.addAttribute("person", new User());
         return "new";
     }
 

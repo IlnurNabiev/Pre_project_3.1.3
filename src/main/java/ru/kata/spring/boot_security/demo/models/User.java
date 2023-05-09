@@ -37,11 +37,11 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public User(String name, String password, String email) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
-    }
+//    public User(String name, String password, String email) {
+//        this.name = name;
+//        this.password = password;
+//        this.email = email;
+//    }
 
     public Long getId() {
         return id;
